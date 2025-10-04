@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About | BL Shadows</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #121212;
+      color: #f0e6e6;
+    }
+
+    header {
+      background-color: #1a1a1a;
+      padding: 10px 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      box-shadow: 0 2px 10px #000;
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      color: #b30000;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    nav a {
+      color: #e6e6e6;
+      text-decoration: none;
+      margin: 5px 8px;
+      font-size: 0.9rem;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0%;
+      height: 2px;
+      background-color: #b30000;
+      transition: width 0.3s;
+    }
+
+    nav a:hover {
+      color: #b30000;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .about-section {
+      background-color: #1a1a1a;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .about-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .about-content h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #b30000;
+      text-shadow: 0 0 5px #b30000;
+    }
+
+    .about-content p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .explore-btn {
+      display: inline-block;
+      padding: 10px 25px;
+      background-color: #b30000;
+      color: #f0e6e6;
+      border-radius: 25px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 0 10px #b30000;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      margin-top: 15px;
+    }
+
+    .explore-btn:hover {
+      background-color: #4b004b;
+      box-shadow: 0 0 15px #4b004b;
+    }
+
+    footer {
+      background: #1a1a1a;
+      color: #aaa;
+      text-align: center;
+      padding: 12px;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      .logo {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 5px;
+      }
+
+      nav {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">BL Shadows</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="browse.html">Browse</a>
+      <a href="submit.html">Submit</a>
+      <a href="forum.html">Forum</a>
+      <a href="about.html">About</a>
+      <a href="login.html">Login</a>
+      <a href="signup.html">Sign Up</a>
+    </nav>
+  </header>
+
+  <section id="about" class="about-section">
+    <div class="about-content">
+      <h2>About BL Shadows</h2>
+      <p>
+        Welcome to <strong>BL Shadows</strong> — a sanctuary for the bold, the broken, and the beautifully twisted. This is where dark romance, dangerous desire, and intense emotional storytelling collide.
+      </p>
+      <p>
+        Born from obsession and built for creators and readers who crave more than clichés, BL Shadows is a home for stories that dare to touch the forbidden. Whether you write, read, or simply want to drown in the shadows — you belong here.
+      </p>
+      <p>
+        Every tale drips with tension, every scene is layered with heat, and every character carries secrets you’ll ache to uncover. Step into the shadows. Let the chains pull you deeper.
+      </p>
+      <a href="browse.html" class="explore-btn">Explore Stories</a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 BL Shadows — All rights reserved.
+  </footer>
+
+</body>
+</html>
