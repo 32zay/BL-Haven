@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BL Shadows — Browse Stories</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0e0e0e;
+      color: #f1f1f1;
+    }
+
+    /* HEADER */
+    header {
+      background-color: #1a1a1a;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      border-bottom: 2px solid #b30000;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #b30000;
+      letter-spacing: 2px;
+    }
+
+    nav {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #e6e6e6;
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 6px 10px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #b30000;
+      color: #fff;
+    }
+
+    /* PAGE TITLE */
+    .page-title {
+      text-align: center;
+      margin: 40px 0 10px;
+      font-size: 2rem;
+      color: #b30000;
+      letter-spacing: 2px;
+    }
+
+    /* STORIES GRID */
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .story-card {
+      background-color: #1c1c1c;
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 16px;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .story-card:hover {
+      transform: translateY(-5px);
+      border-color: #b30000;
+    }
+
+    .story-title {
+      font-size: 1.2rem;
+      color: #ff4c8b;
+      margin-bottom: 8px;
+    }
+
+    .story-description {
+      font-size: 0.9rem;
+      color: #ccc;
+      margin-bottom: 10px;
+    }
+
+    .story-meta {
+      font-size: 0.8rem;
+      color: #999;
+      margin-bottom: 12px;
+    }
+
+    .view-button {
+      display: inline-block;
+      padding: 8px 14px;
+      background-color: #b30000;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      transition: background-color 0.3s;
+    }
+
+    .view-button:hover {
+      background-color: #4b004b;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #777;
+      border-top: 1px solid #333;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">BL Shadows</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="browse.html">Browse</a>
+      <a href="submit.html">Submit</a>
+      <a href="forum.html">Forum</a>
+      <a href="about.html">About</a>
+      <a href="login.html">Login</a>
+      <a href="signup.html">Sign Up</a>
+    </nav>
+  </header>
+
+  <!-- TITLE -->
+  <h1 class="page-title">Browse Stories</h1>
+
+  <!-- STORIES -->
+  <section class="story-grid">
+
+    <div class="story-card">
+      <div class="story-title">Blood and Chains</div>
+      <div class="story-description">
+        An innocent boy is pulled into a dangerous world ruled by seductive, ruthless twins.
+      </div>
+      <div class="story-meta">Genre: Dark BL · Mafia</div>
+      <a href="story.html" class="view-button">View Story</a>
+    </div>
+
+    <div class="story-card">
+      <div class="story-title">Velvet Chains</div>
+      <div class="story-description">
+        Control, obsession, and desire collide inside a palace of silk and power.
+      </div>
+      <div class="story-meta">Genre: Psychological · BDSM</div>
+      <a href="story.html" class="view-button">View Story</a>
+    </div>
+
+    <div class="story-card">
+      <div class="story-title">Midnight Obsession</div>
+      <div class="story-description">
+        When desire turns dangerous, secrets surface under the moonlight.
+      </div>
+      <div class="story-meta">Genre: Seductive · Mystery</div>
+      <a href="story.html" class="view-button">View Story</a>
+    </div>
+
+  </section>
+
+  <footer>
+    © 2025 BL Shadows — All rights reserved.
+  </footer>
+
+</body>
+</html>
