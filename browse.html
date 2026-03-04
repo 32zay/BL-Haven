@@ -2,189 +2,200 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>BL Shadows — Browse Stories</title>
-
+  <link rel="stylesheet" href="style.css"> <!-- link to your main CSS -->
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
+    /* Body and base */
     body {
+      margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-color: #0e0e0e;
-      color: #f1f1f1;
+      background-color: #0a0a0a;
+      color: #f0e6e6;
     }
 
-    /* HEADER */
+    /* Header */
     header {
       background-color: #1a1a1a;
-      padding: 15px 20px;
+      padding: 20px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
-      border-bottom: 2px solid #b30000;
+      box-shadow: 0 2px 10px #000;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
     .logo {
       font-size: 1.5rem;
-      font-weight: bold;
       color: #b30000;
-      letter-spacing: 2px;
-    }
-
-    nav {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
+      font-weight: bold;
     }
 
     nav a {
       color: #e6e6e6;
       text-decoration: none;
-      font-size: 0.9rem;
-      padding: 6px 10px;
-      border-radius: 6px;
-      transition: all 0.3s ease;
+      margin: 0 10px;
+      font-weight: 500;
+      transition: color 0.3s;
     }
 
     nav a:hover {
-      background-color: #b30000;
-      color: #fff;
+      color: #ff66b2;
     }
 
-    /* PAGE TITLE */
-    .page-title {
-      text-align: center;
-      margin: 40px 0 10px;
-      font-size: 2rem;
+    /* Browse section */
+    .browse {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .browse h2 {
+      font-family: 'Playfair Display', serif;
       color: #b30000;
+      font-size: 2.2rem;
+      margin-bottom: 30px;
+      text-align: center;
       letter-spacing: 2px;
     }
 
-    /* STORIES GRID */
-    .story-grid {
+    .posts-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 20px;
-      max-width: 1200px;
-      margin: auto;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
     }
 
-    .story-card {
-      background-color: #1c1c1c;
-      border: 1px solid #333;
+    /* Post cards */
+    .post-card {
+      background: #121212;
+      border: 1px solid #4b004b;
       border-radius: 12px;
-      padding: 16px;
-      transition: transform 0.3s, border-color 0.3s;
+      overflow: hidden;
+      box-shadow: 0 0 12px #4b004b;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
     }
 
-    .story-card:hover {
-      transform: translateY(-5px);
-      border-color: #b30000;
+    .post-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 20px #b30000;
     }
 
-    .story-title {
-      font-size: 1.2rem;
-      color: #ff4c8b;
-      margin-bottom: 8px;
+    .post-img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      filter: brightness(0.85);
+      transition: filter 0.3s ease;
     }
 
-    .story-description {
-      font-size: 0.9rem;
-      color: #ccc;
+    .post-card:hover .post-img {
+      filter: brightness(1);
+    }
+
+    .post-content {
+      padding: 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .post-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: #e94b4b;
       margin-bottom: 10px;
     }
 
-    .story-meta {
-      font-size: 0.8rem;
-      color: #999;
-      margin-bottom: 12px;
+    .post-author {
+      font-size: 0.9rem;
+      color: #bbb;
+      margin-bottom: 15px;
     }
 
-    .view-button {
+    .post-description {
+      font-size: 0.9rem;
+      color: #ddd;
+      margin-bottom: 10px;
+    }
+
+    .post-tags {
+      margin-top: auto;
+    }
+
+    .tag {
       display: inline-block;
-      padding: 8px 14px;
-      background-color: #b30000;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 8px;
-      font-size: 0.85rem;
-      transition: background-color 0.3s;
-    }
-
-    .view-button:hover {
       background-color: #4b004b;
+      color: #ddd;
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 15px;
+      margin-right: 6px;
+      user-select: none;
     }
 
+    /* Footer */
     footer {
-      margin-top: 40px;
-      padding: 20px;
+      background: #1a1a1a;
+      color: #aaa;
       text-align: center;
-      font-size: 0.8rem;
-      color: #777;
-      border-top: 1px solid #333;
+      padding: 15px;
+      margin-top: 60px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .browse h2 {
+        font-size: 1.8rem;
+      }
+
+      .post-card {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
-
 <body>
 
-  <!-- HEADER -->
   <header>
     <div class="logo">BL Shadows</div>
     <nav>
       <a href="index.html">Home</a>
       <a href="browse.html">Browse</a>
       <a href="submit.html">Submit</a>
-      <a href="forum.html">Forum</a>
       <a href="about.html">About</a>
       <a href="login.html">Login</a>
       <a href="signup.html">Sign Up</a>
     </nav>
   </header>
 
-  <!-- TITLE -->
-  <h1 class="page-title">Browse Stories</h1>
-
-  <!-- STORIES -->
-  <section class="story-grid">
-
-    <div class="story-card">
-      <div class="story-title">Blood and Chains</div>
-      <div class="story-description">
-        An innocent boy is pulled into a dangerous world ruled by seductive, ruthless twins.
+  <main>
+    <section class="browse">
+      <h2>Browse Stories</h2>
+      <div class="posts-grid">
+        <article class="post-card">
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Story 1" class="post-img" />
+          <div class="post-content">
+            <h3 class="post-title">Chains of Crimson</h3>
+            <p class="post-author">by Nightshade</p>
+            <p class="post-description">A dark tale of love, power, and the shadows of the criminal underworld...</p>
+            <div class="post-tags">
+              <span class="tag">Dark</span>
+              <span class="tag">Seductive</span>
+              <span class="tag">Mafia</span>
+            </div>
+          </div>
+        </article>
+        <!-- Add more story cards as needed -->
       </div>
-      <div class="story-meta">Genre: Dark BL · Mafia</div>
-      <a href="story.html" class="view-button">View Story</a>
-    </div>
-
-    <div class="story-card">
-      <div class="story-title">Velvet Chains</div>
-      <div class="story-description">
-        Control, obsession, and desire collide inside a palace of silk and power.
-      </div>
-      <div class="story-meta">Genre: Psychological · BDSM</div>
-      <a href="story.html" class="view-button">View Story</a>
-    </div>
-
-    <div class="story-card">
-      <div class="story-title">Midnight Obsession</div>
-      <div class="story-description">
-        When desire turns dangerous, secrets surface under the moonlight.
-      </div>
-      <div class="story-meta">Genre: Seductive · Mystery</div>
-      <a href="story.html" class="view-button">View Story</a>
-    </div>
-
-  </section>
+    </section>
+  </main>
 
   <footer>
-    © 2025 BL Shadows — All rights reserved.
+    &copy; 2025 BL Shadows — All rights reserved.
   </footer>
 
 </body>
