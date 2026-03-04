@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BL Shadows — Forum</title>
+  <link rel="stylesheet" href="style.css"> <!-- use the main CSS -->
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #0e0e0e;
+      color: #e6e6e6;
+    }
+
+    header {
+      background-color: #1a1a1a;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 2px solid #b30000;
+      box-shadow: 0 2px 10px #000;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-family: 'Playfair Display', serif;
+      color: #b30000;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    nav a {
+      color: #e6e6e6;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ff66b2;
+    }
+
+    .forum-container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #ff4c8b;
+      text-align: center;
+      text-shadow: 0 0 6px #4b004b;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .discussion {
+      background-color: #1c1c1c;
+      border: 1px solid #4b004b;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .discussion:hover {
+      box-shadow: 0 0 15px #b30000;
+      transform: translateY(-2px);
+    }
+
+    .discussion h3 {
+      margin-top: 0;
+      color: #ff4c8b;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .discussion p {
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+
+    .reply-form {
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .reply-form textarea {
+      width: 100%;
+      padding: 0.75rem;
+      background-color: #2a2a2a;
+      color: #eee;
+      border: 1px solid #4b004b;
+      border-radius: 8px;
+      resize: vertical;
+      min-height: 80px;
+      font-size: 0.95rem;
+    }
+
+    .reply-form button {
+      margin-top: 0.8rem;
+      background-color: #b30000;
+      color: #fff;
+      padding: 0.5rem 1.2rem;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .reply-form button:hover {
+      background-color: #4b004b;
+      transform: translateY(-2px);
+    }
+
+    footer {
+      background-color: #111;
+      padding: 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #888;
+      margin-top: 2rem;
+      border-top: 1px solid #4b004b;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">BL Shadows</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="browse.html">Browse</a>
+      <a href="submit.html">Submit</a>
+      <a href="forum.html">Forum</a>
+      <a href="about.html">About</a>
+      <a href="login.html">Login</a>
+      <a href="signup.html">Sign Up</a>
+    </nav>
+  </header>
+
+  <div class="forum-container">
+    <h2 class="section-title">General Discussions</h2>
+
+    <div class="discussion">
+      <h3>🔥 Which BL novel messed you up emotionally (in the best way)?</h3>
+      <p>Share the ones that broke you or made you fall in love all over again. Recs welcome!</p>
+      <div class="reply-form">
+        <textarea placeholder="Write your reply..."></textarea>
+        <button>Reply</button>
+      </div>
+    </div>
+
+    <div class="discussion">
+      <h3>📚 What dark BL story would you recommend for new readers?</h3>
+      <p>Imagine someone's first dive into dark BL... which novel would you hand them?</p>
+      <div class="reply-form">
+        <textarea placeholder="Write your reply..."></textarea>
+        <button>Reply</button>
+      </div>
+    </div>
+
+    <div class="discussion">
+      <h3>💡 Feature Suggestions for BL Haven?</h3>
+      <p>What would you like to see on this platform? Reader rewards? Live chat? Story requests?</p>
+      <div class="reply-form">
+        <textarea placeholder="Write your suggestion..."></textarea>
+        <button>Submit</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 BL Shadows — Forum built for you.
+  </footer>
+
+</body>
+</html>
