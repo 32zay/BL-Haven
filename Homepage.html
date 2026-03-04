@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BL Haven</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Reset & base styling */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to bottom, #0d000d, #1a001a);
+      color: #f7f1f7;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Subtle misty ink background overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('images/ink-texture.png') center/cover no-repeat;
+      opacity: 0.05;
+      z-index: -1;
+    }
+
+    .home {
+      max-width: 900px;
+      padding: 40px;
+      background: rgba(15, 0, 15, 0.75);
+      border-radius: 25px;
+      box-shadow: 0 0 50px rgba(255, 51, 153, 0.5);
+      animation: fadeIn 1.8s ease-in;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #ff66b2;
+      text-shadow: 2px 2px #000;
+      letter-spacing: 1px;
+    }
+
+    p {
+      font-size: 1.25rem;
+      margin-bottom: 35px;
+      line-height: 1.7;
+      color: #ffd6f0;
+      text-shadow: 1px 1px #00000033;
+    }
+
+    nav a {
+      display: inline-block;
+      margin: 10px 15px;
+      padding: 12px 28px;
+      background: #330033;
+      color: #ff66b2;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 12px;
+      border: 2px solid #ff66b2;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      background: #ff66b2;
+      color: #1a001a;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 102, 178, 0.6);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Optional subtle glow animation for title */
+    @keyframes glow {
+      0%, 100% { text-shadow: 0 0 10px #ff66b2, 0 0 20px #ff33cc; }
+      50% { text-shadow: 0 0 20px #ff99cc, 0 0 30px #ff66b2; }
+    }
+
+    h1 {
+      animation: glow 3s ease-in-out infinite;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      h1 { font-size: 2.2rem; }
+      p { font-size: 1rem; }
+      nav a { padding: 10px 20px; margin: 8px 10px; }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="home">
+    <h1>BL Haven</h1>
+    <p>Where shadows turn to desires, and inked stories awaken the imagination. Step in, explore, and let your heart wander among tales of love, longing, and the unexpected.</p>
+    
+    <nav>
+      <a href="home.html">Enter the Haven</a>
+      <a href="browse.html">Browse</a>
+      <a href="submit.html">Submit</a>
+      <a href="forum.html">Forum</a>
+      <a href="about.html">About</a>
+      <a href="login.html">Login</a>
+      <a href="signup.html">Sign Up</a>
+    </nav>
+  </div>
+</body>
+</html>
