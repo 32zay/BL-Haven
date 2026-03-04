@@ -1,132 +1,263 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>About | BL Shadows</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BL Shadows — Dark BL Community</title>
   <style>
-    body {
+    /* Reset */
+    * {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #121212;
-      color: #f0e6e6;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #0a0a0a;
+      color: #ddd;
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      color: #b30000;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #4b004b;
     }
 
     header {
-      background-color: #1a1a1a;
-      padding: 10px 15px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(10, 10, 10, 0.9);
+      backdrop-filter: saturate(180%) blur(8px);
+      border-bottom: 1px solid #4b004b;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
-      box-shadow: 0 2px 10px #000;
+      padding: 15px 40px;
+      z-index: 100;
     }
 
-    .logo {
-      font-size: 1.3rem;
+    header .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
       color: #b30000;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
-
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      letter-spacing: 3px;
+      cursor: default;
     }
 
     nav a {
-      color: #e6e6e6;
-      text-decoration: none;
-      margin: 5px 8px;
-      font-size: 0.9rem;
+      margin-left: 25px;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    nav a:first-child {
+      margin-left: 0;
+    }
+
+    main {
+      margin-top: 80px;
+      flex-grow: 1;
+    }
+
+    /* Hero section */
+    .hero {
+      height: 70vh;
+      background: url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1471&q=80') center/cover no-repeat;
       position: relative;
-      transition: color 0.3s;
-    }
-
-    nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -3px;
-      width: 0%;
-      height: 2px;
-      background-color: #b30000;
-      transition: width 0.3s;
-    }
-
-    nav a:hover {
-      color: #b30000;
-    }
-
-    nav a:hover::after {
-      width: 100%;
-    }
-
-    .about-section {
-      background-color: #1a1a1a;
-      padding: 60px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #f0e6e6;
       text-align: center;
-    }
-
-    .about-content {
-      max-width: 800px;
-      margin: 0 auto;
       padding: 0 20px;
     }
 
-    .about-content h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      color: #b30000;
-      text-shadow: 0 0 5px #b30000;
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(10, 10, 10, 0.75);
+      z-index: 0;
     }
 
-    .about-content p {
-      font-size: 1rem;
-      line-height: 1.6;
-      margin-bottom: 20px;
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
     }
 
-    .explore-btn {
-      display: inline-block;
-      padding: 10px 25px;
+    .hero-content h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      margin-bottom: 15px;
+      letter-spacing: 4px;
+      text-shadow: 0 0 8px #b30000;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      font-weight: 300;
+      letter-spacing: 1.5px;
+      text-shadow: 0 0 6px #4b004b;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 25px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
       background-color: #b30000;
+      border: none;
+      padding: 12px 30px;
       color: #f0e6e6;
+      font-weight: 600;
+      font-size: 1rem;
       border-radius: 25px;
-      font-weight: bold;
-      text-decoration: none;
+      cursor: pointer;
       box-shadow: 0 0 10px #b30000;
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
-      margin-top: 15px;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s;
     }
 
-    .explore-btn:hover {
+    .btn:hover {
       background-color: #4b004b;
       box-shadow: 0 0 15px #4b004b;
+      transform: translateY(-2px);
     }
 
-    footer {
-      background: #1a1a1a;
-      color: #aaa;
+    /* Featured Posts Section */
+    .featured {
+      max-width: 1100px;
+      margin: 60px auto 80px auto;
+      padding: 0 20px;
+    }
+
+    .featured h2 {
+      font-family: 'Playfair Display', serif;
+      color: #b30000;
+      font-size: 2rem;
+      margin-bottom: 30px;
       text-align: center;
-      padding: 12px;
+      letter-spacing: 3px;
+    }
+
+    .posts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+
+    .post-card {
+      background: #121212;
+      border: 1px solid #4b004b;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 12px #4b004b;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .post-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 20px #b30000;
+    }
+
+    .post-img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      filter: brightness(0.85);
+      transition: filter 0.3s ease;
+    }
+
+    .post-card:hover .post-img {
+      filter: brightness(1);
+    }
+
+    .post-content {
+      padding: 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .post-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: #e94b4b;
+      margin-bottom: 10px;
+      flex-grow: 0;
+    }
+
+    .post-author {
       font-size: 0.9rem;
+      color: #bbb;
+      margin-bottom: 15px;
+    }
+
+    .post-tags {
+      margin-top: auto;
+    }
+
+    .tag {
+      display: inline-block;
+      background-color: #4b004b;
+      color: #ddd;
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 15px;
+      margin-right: 6px;
+      user-select: none;
+    }
+
+    /* Footer */
+    footer {
+      background: #0a0a0a;
+      border-top: 1px solid #4b004b;
+      color: #666;
+      text-align: center;
+      padding: 25px 20px;
+      font-size: 0.9rem;
+      user-select: none;
     }
 
     @media (max-width: 600px) {
-      .logo {
-        width: 100%;
-        text-align: center;
-        margin-bottom: 5px;
+      .hero-content h1 {
+        font-size: 2rem;
       }
 
-      nav {
-        justify-content: center;
+      .hero-content p {
+        font-size: 1rem;
+      }
+
+      nav a {
+        margin-left: 15px;
+        font-size: 0.9rem;
+      }
+
+      header {
+        padding: 15px 20px;
       }
     }
   </style>
 </head>
+
 <body>
 
   <header>
@@ -142,25 +273,68 @@
     </nav>
   </header>
 
-  <section id="about" class="about-section">
-    <div class="about-content">
-      <h2>About BL Shadows</h2>
-      <p>
-        Welcome to <strong>BL Shadows</strong> — a sanctuary for the bold, the broken, and the beautifully twisted. This is where dark romance, dangerous desire, and intense emotional storytelling collide.
-      </p>
-      <p>
-        Born from obsession and built for creators and readers who crave more than clichés, BL Shadows is a home for stories that dare to touch the forbidden. Whether you write, read, or simply want to drown in the shadows — you belong here.
-      </p>
-      <p>
-        Every tale drips with tension, every scene is layered with heat, and every character carries secrets you’ll ache to uncover. Step into the shadows. Let the chains pull you deeper.
-      </p>
-      <a href="browse.html" class="explore-btn">Explore Stories</a>
-    </div>
-  </section>
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Enter the Shadows of Desire</h1>
+        <p>Your BL haven of darkness and passion.</p>
+        <div class="hero-buttons">
+          <a href="browse.html" class="btn">Browse Stories</a>
+          <a href="submit.html" class="btn">Submit Your Work</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="featured">
+      <h2>Featured Stories</h2>
+      <div class="posts-grid">
+        <article class="post-card">
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+            alt="Story 1" class="post-img" />
+          <div class="post-content">
+            <h3 class="post-title">Chains of Crimson</h3>
+            <p class="post-author">by Nightshade</p>
+            <div class="post-tags">
+              <span class="tag">Dark</span>
+              <span class="tag">Seductive</span>
+              <span class="tag">Mafia</span>
+            </div>
+          </div>
+        </article>
+        <article class="post-card">
+          <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=400&q=80"
+            alt="Story 2" class="post-img" />
+          <div class="post-content">
+            <h3 class="post-title">Velvet Chains</h3>
+            <p class="post-author">by Raven</p>
+            <div class="post-tags">
+              <span class="tag">BDSM</span>
+              <span class="tag">Romance</span>
+              <span class="tag">Dangerous</span>
+            </div>
+          </div>
+        </article>
+        <article class="post-card">
+          <img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=400&q=80"
+            alt="Story 3" class="post-img" />
+          <div class="post-content">
+            <h3 class="post-title">Midnight Obsession</h3>
+            <p class="post-author">by Silas</p>
+            <div class="post-tags">
+              <span class="tag">Seductive</span>
+              <span class="tag">Mystery</span>
+              <span class="tag">Twins</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
 
   <footer>
     &copy; 2025 BL Shadows — All rights reserved.
   </footer>
 
 </body>
+
 </html>
