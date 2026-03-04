@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BL Shadows — Submit Story</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #0a0a0a;
+      color: #f0e6e6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: rgba(10, 10, 10, 0.95);
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #4b004b;
+      backdrop-filter: blur(8px);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: #b30000;
+      letter-spacing: 3px;
+      cursor: default;
+    }
+
+    nav a {
+      margin-left: 25px;
+      font-weight: 600;
+      color: #ddd;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #b30000;
+    }
+
+    main {
+      flex-grow: 1;
+      margin-top: 100px;
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .submit-container {
+      max-width: 800px;
+      width: 100%;
+      background: #121212;
+      border: 1px solid #4b004b;
+      border-radius: 15px;
+      padding: 40px;
+      box-shadow: 0 0 15px #b30000;
+    }
+
+    .submit-container h2 {
+      font-family: 'Playfair Display', serif;
+      color: #b30000;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      text-align: center;
+      letter-spacing: 3px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    form label {
+      font-size: 1rem;
+      color: #e94b4b;
+    }
+
+    form input, form textarea {
+      padding: 12px;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 1px solid #4b004b;
+      background-color: #1e1e1e;
+      color: #ddd;
+    }
+
+    form textarea {
+      resize: vertical;
+      height: 150px;
+    }
+
+    form button {
+      background-color: #b30000;
+      padding: 14px 30px;
+      font-weight: 600;
+      color: #f0e6e6;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 0 12px #b30000;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    form button:hover {
+      background-color: #4b004b;
+      box-shadow: 0 0 18px #4b004b;
+    }
+
+    footer {
+      background: #1a1a1a;
+      color: #aaa;
+      text-align: center;
+      padding: 15px;
+      margin-top: 60px;
+    }
+
+    /* Age Modal Styles */
+    #ageModal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    #ageModal .modal-content {
+      background: #121212;
+      border: 2px solid #b30000;
+      border-radius: 15px;
+      padding: 30px;
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+      box-shadow: 0 0 20px #b30000;
+      color: #ddd;
+    }
+
+    #ageModal input[type="number"] {
+      width: 60px;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #4b004b;
+      background-color: #1e1e1e;
+      color: #ddd;
+      font-size: 1rem;
+      text-align: center;
+      margin-right: 10px;
+    }
+
+    #ageModal button {
+      padding: 10px 20px;
+      background-color: #b30000;
+      border: none;
+      border-radius: 25px;
+      color: #f0e6e6;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 0 10px #b30000;
+      transition: all 0.3s ease;
+    }
+
+    #ageModal button:hover {
+      background-color: #4b004b;
+      box-shadow: 0 0 15px #4b004b;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Age Restriction Modal -->
+  <div id="ageModal">
+    <div class="modal-content">
+      <h2>⚠️ Age Verification</h2>
+      <p>You must be 16 years or older to submit a story.</p>
+      <input type="number" id="ageInput" placeholder="Enter age" min="0" />
+      <button id="verifyAgeBtn">Enter</button>
+    </div>
+  </div>
+
+  <header>
+    <div class="logo">BL Shadows</div>
+    <nav>
+      <a href="index.html">Homepage</a>
+      <a href="browse.html">Browse</a>
+      <a href="submit.html">Submit</a>
+      <a href="about.html">About</a>
+      <a href="login.html">Login</a>
+      <a href="signup.html">Sign Up</a>
+      <a href="home.html">Enter the shadows</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="submit-container">
+      <h2>Submit Your Story</h2>
+      <form action="#" method="POST" id="submitForm">
+        <label for="title">Story Title:</label>
+        <input type="text" id="title" name="title" required />
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea>
+
+        <label for="tags">Tags (comma separated):</label>
+        <input type="text" id="tags" name="tags" required />
+
+        <button type="submit">Submit Story</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 BL Shadows — All rights reserved.
+  </footer>
+
+  <script>
+    // Age Verification Logic
+    const modal = document.getElementById('ageModal');
+    const verifyBtn = document.getElementById('verifyAgeBtn');
+    const ageInput = document.getElementById('ageInput');
+
+    verifyBtn.addEventListener('click', () => {
+      const age = parseInt(ageInput.value);
+      if (!age || age < 16) {
+        alert("Sorry! You must be 16 or older to submit a story.");
+        return;
+      }
+      modal.style.display = 'none';
+    });
+
+    // Optional: Press Enter to verify
+    ageInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') verifyBtn.click();
+    });
+  </script>
+</body>
+</html>
